@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+     <!--? Contact form Start -->
+     <div class="contact-form-main">
+        <div class="container">
+            <div class="row justify-content-end">
+                <div class="col-xl-7 col-lg-7">
+                    <div class="form-wrapper">
+                        <!--Section Tittle  -->
+                        {% if messages %}
+                        {% for messsage in messages %}
+                      
+                        <div class='chip green white-text' style="color:red;font-size: 20px;position: relative;left:80px;top:100px;">{{messsage}}</div>
+                       {% endfor %}
+                       {% endif %}
+                        <div class="form-tittle">
+                            <div class="row ">
+                                <div class="col-xl-12">
+                                    <div class="section-tittle section-tittle2">
+                                        <span style="font-size: 28px;">Registration Form</span>
+                                        <!-- <h2>Appointment Form</h2> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--End Section Tittle  -->
+                        <form id="contact-form" action="#" method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="form-box user-icon mb-30">
+                                        <input type="text" name="fname" placeholder="First Name" style="font-size: 20px;"  required class="validate"/>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="form-box user-icon mb-30">
+                                        <input type="text" name="lname" placeholder="Last Name" style="font-size: 20px;"  required class="validate"/>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 mb-30">
+                                    <div class="form-box user-icon mb-30">
+                                        <input type="text" name="username" placeholder="Username" style="font-size: 20px;"  required class="validate"/>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="form-box subject-icon mb-30">
+                                        <input type="Email" name="email" placeholder="Email" style="font-size: 20px;" required class="validate"/>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="form-box subject-icon mb-30">
+                                        <input type="password" name="password" placeholder="Password" style="font-size: 20px;" required class="validate"/>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="form-box subject-icon mb-30">
+                                      
+                                        <input type="password" name="confirm_password" placeholder="Re-enter Password" style="font-size: 20px;" required class="validate"/>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="form-box subject-icon mb-30">
+                                <label style="color: black;font-size: 15px;position: relative;left:25px;">Profile Picture:<input type="file" name="profile_pic" required class="validate" ></label>
+                                
+                                    </div></div>
+                                <div class="col-lg-12 col-md-6 mb-30">
+                                    <div class="form-box message-icon mb-20">
+                                        <textarea name="address" id="address" placeholder="Address" style="font-size: 20px;position: relative;left:10px;" required class="validate"></textarea>
+                                    </div>
+                                    <div class="submit-info">
+                                        <input type="submit" value="Sign Up" name="signup" class="btn btn-large" style="color:white;background-color:rgb(34, 87, 246) ;position: relative;left: 15px;">
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- contact left Img-->
+        <div class="from-left d-none d-lg-block">
+            <img src="{% static 'img/gallery/contact_form.png' %}" alt="">
+        </div>
+    </div>
+    <!-- Contact form End -->
+{% endblock %}

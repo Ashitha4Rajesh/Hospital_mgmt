@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+     <!--? Contact form Start -->
+     <div class="contact-form-main" style="height: 520px;">
+        <div class="container" style="background-color: rgb(127, 214, 255);position: relative;top:70px;height: 450px;">
+            
+                       
+                            <div class="row ">
+                               
+                                        
+                                        <!-- <h2>Appointment Form</h2> -->
+                         
+                        <!--End Section Tittle  -->
+                        <!-- <form method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <table style="position: relative;left: 50px;">
+                            {{form.as_table}}
+                           
+                            </table>
+                            <input type="submit" style="position: relative;left: 50px;">
+                            </form> -->
+                            {% if posts %}
+                            {% for i in posts %}
+                  
+                            <div class="col-sm-4" style="margin-bottom: 50px;"><div class="card m-5" style="width: 20rem;height: 100px;" >
+                                  <!-- <img src="{{i.image.url}}" class="card-img-top height=100px" alt="..." width="100%" style="height: 250px;"> -->
+                                  <div class="card-body">
+                                   
+                                  
+
+
+                          <a class="btn btn-danger" href="{% url 'blog:postview' i.category %}" >{{i.category}}</a>
+                                  </div>
+                                </div></div>
+                                {% endfor %}
+                                {% else %}
+                                {% if messages %}
+                                {% for messsage in messages %}
+                              
+                                <div class='chip green white-text' style="color:red;font-size: 40px;position: relative;left:350px;top:100px;">{{messsage}}</div>
+                                <a class="btn btn-danger" href="{% url 'blog:view_post' %}" style="position: relative;top:200px;">View Post</a>
+                               {% endfor %}
+                               {% endif %}
+                                {% endif %}
+                    </div>
+                </div>
+            </div>
+        
+        <!-- contact left Img-->
+        <!-- <div class="from-left d-none d-lg-block">
+            <img src="{% static 'img/gallery/contact_form.png' %}" alt="">
+        </div> -->
+    </div>
+    <!-- Contact form End -->
+{% endblock %}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!--? About Start-->
+<br><br>
+<div class="about-area mt-2">
+    <h3 style="font-size: 40px;"><b style="color: black;position: relative;left:320px;top: 80px;">Welcome To Our Hospital</b></h3>
+    <div class="container" style="height: 800px;position:relative;top:80px;">
+        <div class="row">
+            <div class="col-lg-6 col-md-10">
+                <div class="about-caption mb-50"> 
+                    <!-- Section Tittle -->
+                    <div class="about-img ">
+                        <!-- <div class="about-font-img d-none d-lg-block">
+                            <img src="{% static 'img/gallery/ba.jpg' %}" alt="" style="height: 400px;width: 400px;">
+                        </div> -->
+                        <div class="about-back-img ">
+                            {% if  data %}
+                            <img src="{{data.profile_pic.url}}" alt="" style="height: 400px;width: 400px;">
+                            {% endif %}
+                        </div>
+                    </div>
+                    
+                    
+                  
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12"> 
+                <!-- about-img -->
+                <div class="section-tittle section-tittle2 mb-35">
+                    <br><br><br>
+
+                  <br><br>
+                       {% if  data %}
+                       <h3 style="font-size: 30px;"><b style="color: black;"><u>Patient Profile</u></b></h3>
+                       <ul  style="color:black;font-size: 25px; position: relative;bottom: 100px;left:10px">
+                         
+                         <li style="position: relative;top:130px;font-size: 25px;"><b style="color: black;">First Name:{{data.first_name}}</b></li>
+                         <li style="position: relative;top:160px;font-size: 25px;"><b style="color: black;">Last Name:{{data.last_name}}</b></li>
+                         <li style="position: relative;top:190px;font-size: 25px;"><b style="color: black;">Email Id:{{data.email}}</b></li>
+                         <li style="position: relative;top:220px;font-size: 25px;"><b style="color: black;">Address:{{data.address}}</b></li>
+                       </ul> 
+             {% endif %}
+                   </div>
+            </div>
+        </div>
+    </div>
+</div> 
+{% endblock %}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+     <!--? Contact form Start -->
+     <div class="contact-form-main" style="height: 920px;">
+        <div class="container" style="background-color: rgb(127, 214, 255);position: relative;top:70px;height: 550px;">
+            
+                       
+                            <div class="row ">
+                               
+                                        
+                                        <!-- <h2>Appointment Form</h2> -->
+                         
+                        <!--End Section Tittle  -->
+                        <!-- <form method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <table style="position: relative;left: 50px;">
+                            {{form.as_table}}
+                           
+                            </table>
+                            <input type="submit" style="position: relative;left: 50px;">
+                            </form> -->
+                            {% if posts %}
+                            {% for i in posts %}
+                  
+                            <div class="col-sm-6" style="margin-bottom: 50px;"><div class="card m-5" style="width: 500px;height: 300px;" >
+                                  <img src="{{i.image.url}}" class="card-img-top height=100px" alt="..." width="100%" style="height: 300px;">
+                                  <div class="card-body">
+                                   <h5 class="card-title" style=" font-family: Georgia, 'Times New Roman', Times, serif; font-weight: bold; color: black;font-size: 20px;">Title:{{i.title}}</h5>
+                                  
+                                  <p class="card-title" style="font-family: 'Times New Roman', Times, serif; color: black;font-weight: bold;font-size: 20px;">Summary:{{i.summary|truncatewords:15}}</p>
+                               
+                                  </div>
+                                </div></div>
+                                {% endfor %}
+                                {% else %}
+                                {% if messages %}
+                                {% for messsage in messages %}
+                              
+                                <div class='chip green white-text' style="color:red;font-size: 40px;position: relative;left:350px;top:100px;">{{messsage}}</div>
+                                <a class="btn btn-danger" href="{% url 'blog:view_post' %}" style="position: relative;top:200px;">View Post</a>
+                               {% endfor %}
+                               {% endif %}
+                                {% endif %}
+                    </div>
+                </div>
+            </div>
+        
+        <!-- contact left Img-->
+        <!-- <div class="from-left d-none d-lg-block">
+            <img src="{% static 'img/gallery/contact_form.png' %}" alt="">
+        </div> -->
+    </div>
+    <!-- Contact form End -->
+{% endblock %}

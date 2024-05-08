@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="department_area ">
+        <div class="container"> 
+<div class="dept_main_info white-bg" style="height: 700px;">
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+  <div class="row align-items-center no-gutters">
+                            <div class="col-lg-12">
+                                <div class="dept_info">
+                                    {% if messages %}
+                                    {% for messsage in messages %}
+                                    <div class='chip green white-text' style="color:red;font-size: 20px;position: relative;bottom:20px;">{{messsage}}</div>
+                                    {% endfor %}
+                                    {% endif %}
+                                    <form method="POST">
+                                        {% csrf_token %}
+                                        <h4 style="color: black;font-size:30px;">Please login to your account</h4>
+                      <br>
+                                        <div class="mb-4">
+                                          <input type="text" name="username" id="username"  class="form-control" style="font-size: 22px;" required class="validate"/>
+                                          <label class="form-label" for="form2Example11" style="color: black;font-size: 20px;">Username</label>
+                                        </div>
+                      
+                                        <div class="form-outline mb-4">
+                                          <input type="password" name="password" id="password" class="form-control" style="font-size: 22px;" required class="validate"/>
+                                          <label class="form-label" for="form2Example22" style="color: black;font-size: 20px;">Password</label>
+                                        </div>
+                                        <div class="form-outline mb-4">
+                                            <input type="password" name="confirm_password" id="password" class="form-control" style="font-size: 22px;" required class="validate"/>
+                                            <label class="form-label" for="form2Example22" style="color: black;font-size: 20px;">Confirm Password</label>
+                                            <!-- {% if messages %}
+                                            {% for messsage in messages %}
+                                          
+                                           <div class='chip green white-text' style="color: red;font-size: 20px;">{{messsage}}</div>
+                                           {% endfor %}
+                                           {% endif %} -->
+                                          </div>
+                                        <div class="text-center pt-1 mb-5 pb-1" >
+                                          <input type="submit" value="Login" name="login" style="color: rgb(2, 2, 21);height: 45px;width: 75px;font-size: 20px;background-color: rgba(37, 148, 228, 0.507);">
+                                          
+                                    
+                      
+                                        </div>
+                      
+                                      </form>
+                                </div>
+                            </div>
+                           
+                        </div> 
+        </div></div></div></div></div>
+      
+{% endblock %}
